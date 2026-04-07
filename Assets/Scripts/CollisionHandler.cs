@@ -1,15 +1,19 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] float levelLoadDelay = 2f;
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip crash;
+    [SerializeField] ParticleSystem ExplosionParticles;
 
 
     AudioSource audioSource;
+
+    List <MeshRenderer> meshRenderers = new List<MeshRenderer>();
 
     void Start()
     {
@@ -61,19 +65,40 @@ public class CollisionHandler : MonoBehaviour
     {
         //TODO: add particle effect
         audioSource.PlayOneShot(success);
-        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        DisableVelocity();
         Invoke(nameof(LoadNextLevel), levelLoadDelay);
     }
 
      public void StartFailSequence(AudioClip clip)
     {
+        if (!ExplosionParticles.isPlaying)
+        {
+            ExplosionParticles.Play();
+        }
         //TODO: add particle effect
         if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(clip);
         }
-        GetComponent<PlayerController>().enabled = false;
+
+        GetComponent<PlayerController>().mainEngineParticles.gameObject.SetActive(false);
+        GetComponent<PlayerController>().leftThrusterParticles.gameObject.SetActive(false);
+        GetComponent<PlayerController>().rightThrusterParticles.gameObject.SetActive(false);
+
+        foreach (MeshRenderer meshRenderer in meshRenderers)
+        {
+            meshRenderer.enabled = false;
+        }
+
+        DisableVelocity();
         Invoke(nameof(ReloadLevel), levelLoadDelay);
+    }
+
+    void DisableVelocity()
+    {
+        GetComponent<PlayerController>().enabled = false;
+        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 }
