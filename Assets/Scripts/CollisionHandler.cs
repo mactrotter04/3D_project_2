@@ -29,14 +29,14 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Obstacle":
                 Debug.Log("this is obstacle");
-                StartCrashSequence();
+                StartFailSequence(crash);
                 break;
             default:
                 Debug.Log("this is something else");
                 break;
         }
     }
-    public void ReloadLevel()
+    void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -66,10 +66,13 @@ public class CollisionHandler : MonoBehaviour
         Invoke(nameof(LoadNextLevel), levelLoadDelay);
     }
 
-    void StartCrashSequence()
+     public void StartFailSequence(AudioClip clip)
     {
         //TODO: add particle effect
-        audioSource.PlayOneShot(crash);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(clip);
+        }
         GetComponent<PlayerController>().enabled = false;
         Invoke(nameof(ReloadLevel), levelLoadDelay);
     }

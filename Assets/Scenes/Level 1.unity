@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -236,7 +237,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -263,7 +264,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.3, y: 19.8, z: 13.5}
+  m_LocalPosition: {x: 28, y: 13.76, z: 33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,6 +314,38 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!4 &374047982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 865684447049741603, guid: d15cfc21fa0d7a647a26b16acb4fc965, type: 3}
@@ -334,7 +367,7 @@ GameObject:
   - component: {fileID: 394945432}
   - component: {fileID: 394945438}
   - component: {fileID: 394945439}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa38d023329d6541a41a69938b6d484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollisionHandler
-  levelLoadDelay: 5
+  levelLoadDelay: 3
   success: {fileID: 8300000, guid: 87da799a1582c8e448323e3449987623, type: 3}
   crash: {fileID: 8300000, guid: f139ee9ad539b2a4a8653a56bc98366a, type: 3}
 --- !u!114 &394945439
@@ -573,6 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CountDown
   timeToCompleate: 120
   timerText: {fileID: 540076425}
+  fail: {fileID: 8300000, guid: 64a9302ed5bf29541aead95993af71fc, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1152,59 @@ Transform:
   - {fileID: 374047982}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1082902876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1082902878}
+  - component: {fileID: 1082902877}
+  m_Layer: 3
+  m_Name: 'CameraBoundries '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1082902877
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082902876}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 230, y: 70.3, z: 100}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1082902878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082902876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 122, y: 9.6, z: 61.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264850618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264850619}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thrusters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1152,6 +1239,116 @@ Transform:
   - {fileID: 1782424624}
   m_Father: {fileID: 394945436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1578839898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1578839901}
+  - component: {fileID: 1578839900}
+  - component: {fileID: 1578839899}
+  - component: {fileID: 1578839902}
+  m_Layer: 0
+  m_Name: CinemachineCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1578839899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578839898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
+  TrackerSettings:
+    BindingMode: 4
+    PositionDamping: {x: 0.2, y: 0.2, z: 0.2}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 0, y: 0, z: -15}
+--- !u!114 &1578839900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578839898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 394945436}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60.000004
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!4 &1578839901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578839898}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28, y: 13.76, z: 33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1578839902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578839898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d75924d76b05344aa410607bc57db98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner3D
+  BoundingVolume: {fileID: 1082902877}
+  SlowingDistance: 0
 --- !u!1 &1782424623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1360,7 @@ GameObject:
   - component: {fileID: 1782424624}
   - component: {fileID: 1782424626}
   - component: {fileID: 1782424625}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right Side Thruster Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6413,7 +6610,7 @@ GameObject:
   - component: {fileID: 196153043340876891}
   m_Layer: 0
   m_Name: Asteroid 3 (7)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6809,7 +7006,7 @@ GameObject:
   - component: {fileID: 615689171774794521}
   m_Layer: 0
   m_Name: Asteroid 3
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7418,7 +7615,7 @@ GameObject:
   - component: {fileID: 673669441572920585}
   m_Layer: 0
   m_Name: Asteroid 3 (4)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7724,7 +7921,7 @@ GameObject:
   - component: {fileID: 978132850228252303}
   m_Layer: 0
   m_Name: Asteroid 3 (5)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8116,7 +8313,7 @@ GameObject:
   - component: {fileID: 1213080754064779784}
   m_Layer: 0
   m_Name: Asteroid 3 (3)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8481,7 +8678,7 @@ GameObject:
   - component: {fileID: 2852739832842587606}
   - component: {fileID: 2649228601210758361}
   - component: {fileID: 8540139271671358712}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8507,7 +8704,7 @@ GameObject:
   - component: {fileID: 8054297098196800641}
   - component: {fileID: 8922953264155413700}
   - component: {fileID: 1393907879574197578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: exhaust_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8795,7 +8992,7 @@ GameObject:
   - component: {fileID: 2712713706845927412}
   m_Layer: 0
   m_Name: Asteroid 3 (1)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9486,7 +9683,7 @@ GameObject:
   - component: {fileID: 5108274279211781899}
   - component: {fileID: 293090246786525477}
   - component: {fileID: 2914726049781516764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9504,7 +9701,7 @@ GameObject:
   - component: {fileID: 3196781856034287927}
   - component: {fileID: 3383054417532124031}
   - component: {fileID: 3353198100722161833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocket Jet Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14432,7 +14629,7 @@ GameObject:
   - component: {fileID: 8169296147570961958}
   - component: {fileID: 2520221061228018236}
   - component: {fileID: 6645919797414389199}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14690,7 +14887,7 @@ GameObject:
   - component: {fileID: 3789399716610359534}
   m_Layer: 0
   m_Name: Asteroid 3 (2)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14984,7 +15181,7 @@ GameObject:
   - component: {fileID: 5709076984175254167}
   - component: {fileID: 5683533170222176810}
   - component: {fileID: 6620433973263614398}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15002,7 +15199,7 @@ GameObject:
   - component: {fileID: 19429621324525591}
   - component: {fileID: 3332428544214297983}
   - component: {fileID: 5247562223817219623}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: exhaust_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15393,7 +15590,7 @@ GameObject:
   - component: {fileID: 5044396382444317672}
   m_Layer: 0
   m_Name: Asteroid 3 (8)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15526,7 +15723,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6032182470806926625}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16551,7 +16748,7 @@ GameObject:
   - component: {fileID: 8248173592748930034}
   - component: {fileID: 4067688933121848470}
   - component: {fileID: 3731284792222906815}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: window_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17526,7 +17723,7 @@ GameObject:
   - component: {fileID: 6572291716322526954}
   m_Layer: 0
   m_Name: Asteroid 3 (6)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19295,7 +19492,7 @@ GameObject:
   - component: {fileID: 3473815271964707176}
   - component: {fileID: 1898483243811439976}
   - component: {fileID: 380329464250899200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19313,7 +19510,7 @@ GameObject:
   - component: {fileID: 7320724498888015518}
   - component: {fileID: 7437191335838168278}
   - component: {fileID: 7443821143819114240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left Side Thruster Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24252,7 +24449,7 @@ GameObject:
   - component: {fileID: 636288047121178921}
   - component: {fileID: 8270732961575999101}
   - component: {fileID: 4828539435524492672}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: window_006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24357,7 +24554,7 @@ GameObject:
   - component: {fileID: 2164242765746306098}
   - component: {fileID: 3451885400320063349}
   - component: {fileID: 5404491500913749620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: window_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24375,7 +24572,7 @@ GameObject:
   - component: {fileID: 541249544883644573}
   - component: {fileID: 2209335200920417182}
   - component: {fileID: 8163559526607688575}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: exhaust_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24442,7 +24639,7 @@ GameObject:
   - component: {fileID: 7153060220292020129}
   - component: {fileID: 616385744508789540}
   - component: {fileID: 7419816062359858188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: window_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24460,7 +24657,7 @@ GameObject:
   - component: {fileID: 6179408252880627265}
   - component: {fileID: 7030797495755843297}
   - component: {fileID: 1098485220484703324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: exhaust_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24560,3 +24757,5 @@ SceneRoots:
   - {fileID: 394945436}
   - {fileID: 2087577795}
   - {fileID: 530998240}
+  - {fileID: 1578839901}
+  - {fileID: 1082902878}
