@@ -22,7 +22,7 @@ public class CountDown : MonoBehaviour
         timerText.text = (timeToCompleate).ToString("0");
         if (timeToCompleate < 0)
         {
-            Invoke(nameof(collisionHandler.ReloadLevel), 2f);
+            collisionHandler.ReloadLevel();
         }
     }
 }
